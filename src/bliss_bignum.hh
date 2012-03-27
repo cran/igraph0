@@ -20,9 +20,13 @@
 #ifndef BLISS_BIGNUM_HH
 #define BLISS_BIGNUM_HH
 
-#include <stdlib.h>
-#include <stdio.h>
+using namespace std;
+
+#include <cstdlib>
+#include <cstdio>
 #include <cmath>
+#include <cstring>
+#include <sstream>
 #include "bliss_defs.hh"
 #include "igraph_math.h"
 
@@ -74,22 +78,20 @@ public:
   BigNum(): v(0.0) {}
   void assign(const int n) {v = (long double)n; }
   void multiply(const int n) {v *= (long double)n; }
-#ifdef WIN64
+#if defined WIN32 || defined WIN64 || defined _Win32 || defined _Win64
   int print(FILE *fp) {return fprintf(fp, "%g", (double)v); }
 #else
   int print(FILE *fp) {return fprintf(fp, "%Lg", v); }
 #endif
   int tostring(char **str) {
-    int size=static_cast<int>( (logbl(fabsl(v))/log(10.0))+4 );
+    int size=static_cast<int>( (log(abs(v))/log(10.0))+4 );
     *str=igraph_Calloc(size, char );
     if (! *str) {
       IGRAPH_ERROR("Cannot convert big number to string", IGRAPH_ENOMEM);
     }
-#ifdef WIN64
-    snprintf(*str, size, "%.0f", (double)v);
-#else
-    snprintf(*str, size, "%.0Lf", v);
-#endif
+    stringstream ss;
+    ss << v;
+    strncpy(*str, ss.str().c_str(), size);
     return 0;
   }
 };
