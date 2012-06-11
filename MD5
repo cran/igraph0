@@ -1,5 +1,5 @@
 95678d8742d4b2ae664cee23ee45dd48 *ChangeLog
-581f724c2b5385fd3f0c30e3021bd6c0 *DESCRIPTION
+56f61443e3838b5a859f22dea4b66f9b *DESCRIPTION
 eb723b61539feef013de476e68b5c50a *LICENSE
 83eb4dc8f008715d7d0860571741432d *NAMESPACE
 599478b1daf73d8959c77a7eb67595b3 *R/CohesiveBlocks.R
@@ -38,7 +38,7 @@ cf8b1bdf854bb6be72b4493bf97a93df *R/structural.properties.R
 e231009f791974d6ce615f2e0bbf8bc9 *R/tkplot.R
 de3707d5fd747e94cdde21249e498014 *R/topology.R
 223c515f5915d680971bd1d2a1397e78 *a.out.dSYM/Contents/Info.plist
-1bfee446715921afa5572a85f8b2e90d *a.out.dSYM/Contents/Resources/DWARF/a.out
+1ea2d3caae3ced6f3b8761ee95bbd9af *a.out.dSYM/Contents/Resources/DWARF/a.out
 774d1890e193372bf0b2ffce84c4a016 *configure
 dcfc5ac7f1a47eba82acd89ab6651abe *configure.in
 d41d8cd98f00b204e9800998ecf8427e *configure.win
