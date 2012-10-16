@@ -1,5 +1,6 @@
+1a2420f70000f51497a2e2173bf391a4 *AUTHORS
 95678d8742d4b2ae664cee23ee45dd48 *ChangeLog
-56f61443e3838b5a859f22dea4b66f9b *DESCRIPTION
+5578cf7d6370977a5192623b304f0939 *DESCRIPTION
 eb723b61539feef013de476e68b5c50a *LICENSE
 83eb4dc8f008715d7d0860571741432d *NAMESPACE
 599478b1daf73d8959c77a7eb67595b3 *R/CohesiveBlocks.R
@@ -39,7 +40,7 @@ e231009f791974d6ce615f2e0bbf8bc9 *R/tkplot.R
 de3707d5fd747e94cdde21249e498014 *R/topology.R
 223c515f5915d680971bd1d2a1397e78 *a.out.dSYM/Contents/Info.plist
 1ea2d3caae3ced6f3b8761ee95bbd9af *a.out.dSYM/Contents/Resources/DWARF/a.out
-774d1890e193372bf0b2ffce84c4a016 *configure
+6627c1f03b9f7f116a41d35268b464e6 *configure
 dcfc5ac7f1a47eba82acd89ab6651abe *configure.in
 d41d8cd98f00b204e9800998ecf8427e *configure.win
 74d5a3562c00e68b6af53be34e828c52 *inst/CITATION
@@ -192,7 +193,7 @@ ddcca6533b640be7679ea5be2ae3ff30 *src/attributes.h
 ff5554bdd62f8f8bb2a6a9605aafe03d *src/bfgs.c
 6ab6e15acf7ca6b3ca2e765ce34d578e *src/bipartite.c
 ea25354a8e7565667225d41d6b8b174c *src/bliss.cc
-53bf8f7e52626cb744a64d9820ee53d3 *src/bliss_bignum.hh
+8cca0a44dcc557744981f479277ddff0 *src/bliss_bignum.hh
 6e7cc1aae5df12eeb1cc770abc547207 *src/bliss_defs.hh
 349ea4f988439d93cbffbc365cf38f1a *src/bliss_eqrefhash.cc
 f8031410e5676d1aee8dfda858630a84 *src/bliss_eqrefhash.hh
@@ -204,12 +205,12 @@ bc3fbeadb0d8aa27743b806d613b6702 *src/bliss_heap.cc
 d1b17b4387049a87edaa7010d74ebd85 *src/bliss_kstack.hh
 1adacfd06bd5530de416073427fa0375 *src/bliss_orbit.cc
 42e8c44b4f4164b869cbf6bb0787c94f *src/bliss_orbit.hh
-9c08cc7327e844434486f43379d47762 *src/bliss_partition.cc
-4dcd5691423b0d509aed3df71b7304fe *src/bliss_partition.hh
+488b4774b78c6014958d90bb48659044 *src/bliss_partition.cc
+9d88182f31ee5bd6300c490aa41a3b5a *src/bliss_partition.hh
 4d149f1091d9b03a97a30d198226ee2a *src/bliss_timer.cc
 4fbcb31c629208df6e08de6fc5546e8a *src/bliss_timer.hh
-04d9cb1ed2d3475f69a140481622a094 *src/bliss_utils.cc
-16712821c3aeceac54664ce9fffb66ca *src/bliss_utils.hh
+9dea494c0b450eacc3399124a835ca34 *src/bliss_utils.cc
+40ec60a85a52ae23d365b36be0663e80 *src/bliss_utils.hh
 f16dbace2c39df27f06d11dd79515a40 *src/cattributes.c
 696f4c9fdf6eee1f7d6f97b065dfb0fe *src/centrality.c
 b09b50fb2afca26ada27daefb8e5f5db *src/cliques.c
@@ -218,7 +219,7 @@ bb1c1702764ef7d2e24c715c0ecb01a4 *src/clustertool.cpp
 c5835e4eecab489bcf2220b8c9d51984 *src/community.c
 58eb781015c45051cb4a64321f254ed5 *src/components.c
 d41d8cd98f00b204e9800998ecf8427e *src/config.h
-617bc7e2ffcbbd829f7207d190f8966a *src/config.h.in
+948e067f196211837a0b0e4e588e1dbf *src/config.h.in
 a75651bd0c804da63fa8f8110f9be684 *src/conversion.c
 443432b4f2690a603ee5546da74fc47c *src/cores.c
 0d32c21eec7f43372cc9adac8477802c *src/d_lg10.c
