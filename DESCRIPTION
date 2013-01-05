@@ -1,5 +1,5 @@
 Package: igraph0
-Version: 0.5.6-1
+Version: 0.5.6-2
 Date: 2013-01-05
 Title: Network analysis and visualization, old, deprecated package.
 Author: See AUTHORS file.
@@ -15,6 +15,6 @@ Suggests: stats4, rgl, tcltk, RSQLite, digest, graph, Matrix
 License: GPL (>= 2)
 URL: http://igraph.sourceforge.net
 SystemRequirements: gmp, libxml2
-Packaged: 2013-01-08 16:36:26 UTC; gaborcsardi
+Packaged: 2013-01-09 17:07:07 UTC; gaborcsardi
 Repository: CRAN
-Date/Publication: 2013-01-08 21:07:57
+Date/Publication: 2013-01-09 19:39:41

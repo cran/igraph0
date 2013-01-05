@@ -1,6 +1,6 @@
 1a2420f70000f51497a2e2173bf391a4 *AUTHORS
 95678d8742d4b2ae664cee23ee45dd48 *ChangeLog
-e70aaa50af5c734f217f0f72dc7de309 *DESCRIPTION
+c731d5f6eaf8badf3db4adc93362c858 *DESCRIPTION
 eb723b61539feef013de476e68b5c50a *LICENSE
 208d64a6b1045c7b078e9616f9b56679 *NAMESPACE
 599478b1daf73d8959c77a7eb67595b3 *R/CohesiveBlocks.R
@@ -32,7 +32,7 @@ ad3b0f25c2fd3d6962a61bd208631375 *R/plot.R
 13dbcd295599d674928a67ccbf35d0fe *R/plot.common.R
 806a680d885f14dfae126f228d286ab5 *R/plot.shapes.R
 a7045c1a7683fe63df925c2506ac0017 *R/print.R
-ba0b73b881825fd56bd917599c016c74 *R/socnet.R
+1eedbfdb111c98c200e6a9318be9f6f8 *R/socnet.R
 cf8b1bdf854bb6be72b4493bf97a93df *R/structural.properties.R
 3c4d152c3a7f65db61fa66d1844cf3c0 *R/structure.generators.R
 8f7d426d9d45dd75df8b3a727f0fe23d *R/structure.info.R
