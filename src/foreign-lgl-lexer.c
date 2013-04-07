@@ -519,6 +519,7 @@ char *igraph_lgl_yytext;
 */
 
 #include "config.h"
+#include "error.h"
 #include <stdlib.h>
 #include "foreign-lgl-parser.h"
 extern long int igraph_lgl_mylineno;
@@ -526,8 +527,17 @@ int igraph_i_lgl_eof;
 void igraph_i_lgl_reset_scanner() {
   YY_FLUSH_BUFFER;
 }
+/* We assume that 'file' is 'stderr' here. */
+#define fprintf(file, msg, ...) \
+  igraph_warningf(msg, __FILE__, __LINE__, 0, __VA_ARGS__)
+#ifdef stdout 
+#  undef stdout
+#endif
+#define stdout 0
+#define exit(code) igraph_error("Fatal error in LGL parser", __FILE__, \
+				__LINE__, IGRAPH_PARSEERROR);
 #define YY_NO_INPUT 1
-#line 531 "foreign-lgl-lexer.c"
+#line 541 "foreign-lgl-lexer.c"
 
 #define INITIAL 0
 
@@ -707,11 +717,11 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 65 "foreign-lgl-lexer.l"
+#line 75 "foreign-lgl-lexer.l"
 
 
  /* --------------------------------------------------hashmark------*/
-#line 715 "foreign-lgl-lexer.c"
+#line 725 "foreign-lgl-lexer.c"
 
 	if ( !(yy_init) )
 		{
@@ -796,30 +806,30 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 68 "foreign-lgl-lexer.l"
+#line 78 "foreign-lgl-lexer.l"
 { return HASH; }
 	YY_BREAK
 /* ------------------------------------------------whitespace------*/
 case 2:
 YY_RULE_SETUP
-#line 71 "foreign-lgl-lexer.l"
+#line 81 "foreign-lgl-lexer.l"
 { }
 	YY_BREAK
 /* ---------------------------------------------------newline------*/
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 74 "foreign-lgl-lexer.l"
+#line 84 "foreign-lgl-lexer.l"
 { igraph_lgl_mylineno++; return NEWLINE; }
 	YY_BREAK
 /* ----------------------------------------------alphanumeric------*/
 case 4:
 YY_RULE_SETUP
-#line 77 "foreign-lgl-lexer.l"
+#line 87 "foreign-lgl-lexer.l"
 { return ALNUM; }
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 79 "foreign-lgl-lexer.l"
+#line 89 "foreign-lgl-lexer.l"
 { if (igraph_i_lgl_eof) {
                        yyterminate();
                     } else {
@@ -830,10 +840,10 @@ case YY_STATE_EOF(INITIAL):
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 87 "foreign-lgl-lexer.l"
+#line 97 "foreign-lgl-lexer.l"
 ECHO;
 	YY_BREAK
-#line 837 "foreign-lgl-lexer.c"
+#line 847 "foreign-lgl-lexer.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1791,7 +1801,7 @@ void igraph_lgl_yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 87 "foreign-lgl-lexer.l"
+#line 97 "foreign-lgl-lexer.l"
 
 
 

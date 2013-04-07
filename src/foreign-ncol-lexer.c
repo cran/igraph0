@@ -519,6 +519,7 @@ char *igraph_ncol_yytext;
 */
 
 #include "config.h"
+#include "error.h"
 #include <stdlib.h>
 #include "foreign-ncol-parser.h"
 extern long int igraph_ncol_mylineno;
@@ -526,8 +527,17 @@ int igraph_i_ncol_eof;
 void igraph_i_ncol_reset_scanner() {
   YY_FLUSH_BUFFER;
 }
+/* We assume that 'file' is 'stderr' here. */
+#define fprintf(file, msg, ...) \
+  igraph_warningf(msg, __FILE__, __LINE__, 0, __VA_ARGS__)
+#ifdef stdout 
+#  undef stdout
+#endif
+#define stdout 0
+#define exit(code) igraph_error("Fatal error in NCOL parser", __FILE__, \
+				__LINE__, IGRAPH_PARSEERROR);
 #define YY_NO_INPUT 1
-#line 531 "foreign-ncol-lexer.c"
+#line 541 "foreign-ncol-lexer.c"
 
 #define INITIAL 0
 
@@ -707,11 +717,11 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 65 "foreign-ncol-lexer.l"
+#line 75 "foreign-ncol-lexer.l"
 
 
  /* ------------------------------------------------whitespace------*/
-#line 715 "foreign-ncol-lexer.c"
+#line 725 "foreign-ncol-lexer.c"
 
 	if ( !(yy_init) )
 		{
@@ -796,24 +806,24 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 68 "foreign-ncol-lexer.l"
+#line 78 "foreign-ncol-lexer.l"
 { }
 	YY_BREAK
 /* ---------------------------------------------------newline------*/
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 71 "foreign-ncol-lexer.l"
+#line 81 "foreign-ncol-lexer.l"
 { igraph_ncol_mylineno++; return NEWLINE; }
 	YY_BREAK
 /* ----------------------------------------------alphanumeric------*/
 case 3:
 YY_RULE_SETUP
-#line 74 "foreign-ncol-lexer.l"
+#line 84 "foreign-ncol-lexer.l"
 { return ALNUM; }
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 76 "foreign-ncol-lexer.l"
+#line 86 "foreign-ncol-lexer.l"
 { if (igraph_i_ncol_eof) {
                        yyterminate();
                     } else {
@@ -824,10 +834,10 @@ case YY_STATE_EOF(INITIAL):
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 84 "foreign-ncol-lexer.l"
+#line 94 "foreign-ncol-lexer.l"
 ECHO;
 	YY_BREAK
-#line 831 "foreign-ncol-lexer.c"
+#line 841 "foreign-ncol-lexer.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1785,7 +1795,7 @@ void igraph_ncol_yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 84 "foreign-ncol-lexer.l"
+#line 94 "foreign-ncol-lexer.l"
 
 
 

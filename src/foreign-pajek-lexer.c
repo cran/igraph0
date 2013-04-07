@@ -638,6 +638,7 @@ char *igraph_pajek_yytext;
 */
 
 #include "config.h"
+#include "error.h"
 #include <stdlib.h>
 #include "foreign-pajek-parser.h"
 extern long int igraph_pajek_mylineno;
@@ -646,8 +647,17 @@ int igraph_i_pajek_eof;
 void igraph_i_pajek_reset_scanner() {
   YY_FLUSH_BUFFER;
 }
+/* We assume that 'file' is 'stderr' here. */
+#define fprintf(file, msg, ...) \
+  igraph_warningf(msg, __FILE__, __LINE__, 0, __VA_ARGS__)
+#ifdef stdout 
+#  undef stdout
+#endif
+#define stdout 0
+#define exit(code) igraph_error("Fatal error in DL parser", __FILE__, \
+				__LINE__, IGRAPH_PARSEERROR);
 #define YY_NO_INPUT 1
-#line 651 "foreign-pajek-lexer.c"
+#line 661 "foreign-pajek-lexer.c"
 
 #define INITIAL 0
 
@@ -827,10 +837,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 67 "foreign-pajek-lexer.l"
+#line 77 "foreign-pajek-lexer.l"
 
 
-#line 834 "foreign-pajek-lexer.c"
+#line 844 "foreign-pajek-lexer.c"
 
 	if ( !(yy_init) )
 		{
@@ -915,77 +925,77 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 69 "foreign-pajek-lexer.l"
+#line 79 "foreign-pajek-lexer.l"
 { }
 	YY_BREAK
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 70 "foreign-pajek-lexer.l"
+#line 80 "foreign-pajek-lexer.l"
 { }
 	YY_BREAK
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 71 "foreign-pajek-lexer.l"
+#line 81 "foreign-pajek-lexer.l"
 { }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 72 "foreign-pajek-lexer.l"
+#line 82 "foreign-pajek-lexer.l"
 { return NETWORKLINE; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 73 "foreign-pajek-lexer.l"
+#line 83 "foreign-pajek-lexer.l"
 { return VERTICESLINE; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 74 "foreign-pajek-lexer.l"
+#line 84 "foreign-pajek-lexer.l"
 { return ARCSLINE; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 75 "foreign-pajek-lexer.l"
+#line 85 "foreign-pajek-lexer.l"
 { return EDGESLINE; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 76 "foreign-pajek-lexer.l"
+#line 86 "foreign-pajek-lexer.l"
 { return ARCSLISTLINE; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 77 "foreign-pajek-lexer.l"
+#line 87 "foreign-pajek-lexer.l"
 { return EDGESLISTLINE; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 78 "foreign-pajek-lexer.l"
+#line 88 "foreign-pajek-lexer.l"
 { return MATRIXLINE; }
 	YY_BREAK
 case 11:
 /* rule 11 can match eol */
 YY_RULE_SETUP
-#line 79 "foreign-pajek-lexer.l"
+#line 89 "foreign-pajek-lexer.l"
 { igraph_pajek_mylineno++; igraph_pajek_mode=0; return NEWLINE; }
 	YY_BREAK
 case 12:
 /* rule 12 can match eol */
 YY_RULE_SETUP
-#line 80 "foreign-pajek-lexer.l"
+#line 90 "foreign-pajek-lexer.l"
 { return QSTR; }
 	YY_BREAK
 case 13:
 /* rule 13 can match eol */
 YY_RULE_SETUP
-#line 81 "foreign-pajek-lexer.l"
+#line 91 "foreign-pajek-lexer.l"
 { return PSTR; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 82 "foreign-pajek-lexer.l"
+#line 92 "foreign-pajek-lexer.l"
 { 
                     return NUM; }
 	YY_BREAK
@@ -995,7 +1005,7 @@ case 15:
 (yy_c_buf_p) = yy_cp = yy_bp + 6;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 85 "foreign-pajek-lexer.l"
+#line 95 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_X_FACT; } else { return ALNUM; } }
 	YY_BREAK
 case 16:
@@ -1004,7 +1014,7 @@ case 16:
 (yy_c_buf_p) = yy_cp = yy_bp + 6;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 86 "foreign-pajek-lexer.l"
+#line 96 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_Y_FACT; } else { return ALNUM; } }
 	YY_BREAK
 case 17:
@@ -1013,7 +1023,7 @@ case 17:
 (yy_c_buf_p) = yy_cp = yy_bp + 2;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 87 "foreign-pajek-lexer.l"
+#line 97 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_IC; } else { return ALNUM; } }
 	YY_BREAK
 case 18:
@@ -1022,7 +1032,7 @@ case 18:
 (yy_c_buf_p) = yy_cp = yy_bp + 2;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 88 "foreign-pajek-lexer.l"
+#line 98 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_BC; } else { return ALNUM; } }
 	YY_BREAK
 case 19:
@@ -1031,7 +1041,7 @@ case 19:
 (yy_c_buf_p) = yy_cp = yy_bp + 2;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 89 "foreign-pajek-lexer.l"
+#line 99 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_BW; } else { return ALNUM; } }
 	YY_BREAK
 case 20:
@@ -1040,7 +1050,7 @@ case 20:
 (yy_c_buf_p) = yy_cp = yy_bp + 3;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 90 "foreign-pajek-lexer.l"
+#line 100 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_PHI; } else { return ALNUM; } }
 	YY_BREAK
 case 21:
@@ -1049,7 +1059,7 @@ case 21:
 (yy_c_buf_p) = yy_cp = yy_bp + 1;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 91 "foreign-pajek-lexer.l"
+#line 101 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_R; } else { return ALNUM; } }
 	YY_BREAK
 case 22:
@@ -1058,7 +1068,7 @@ case 22:
 (yy_c_buf_p) = yy_cp = yy_bp + 1;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 92 "foreign-pajek-lexer.l"
+#line 102 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_Q; } else { return ALNUM; } }
 	YY_BREAK
 case 23:
@@ -1067,7 +1077,7 @@ case 23:
 (yy_c_buf_p) = yy_cp = yy_bp + 4;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 93 "foreign-pajek-lexer.l"
+#line 103 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_FONT; } else { return ALNUM; } }
 	YY_BREAK
 case 24:
@@ -1076,7 +1086,7 @@ case 24:
 (yy_c_buf_p) = yy_cp = yy_bp + 3;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 94 "foreign-pajek-lexer.l"
+#line 104 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_URL; } else { return ALNUM; } }
 	YY_BREAK
 case 25:
@@ -1085,7 +1095,7 @@ case 25:
 (yy_c_buf_p) = yy_cp = yy_bp + 1;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 96 "foreign-pajek-lexer.l"
+#line 106 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==2) { return EP_C; } else { return ALNUM; } }
 	YY_BREAK
 case 26:
@@ -1094,7 +1104,7 @@ case 26:
 (yy_c_buf_p) = yy_cp = yy_bp + 1;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 97 "foreign-pajek-lexer.l"
+#line 107 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==2) { return EP_P; } else { return ALNUM; } }
 	YY_BREAK
 case 27:
@@ -1103,7 +1113,7 @@ case 27:
 (yy_c_buf_p) = yy_cp = yy_bp + 1;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 98 "foreign-pajek-lexer.l"
+#line 108 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==2) { return EP_S; } else { return ALNUM; } }
 	YY_BREAK
 case 28:
@@ -1112,7 +1122,7 @@ case 28:
 (yy_c_buf_p) = yy_cp = yy_bp + 1;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 99 "foreign-pajek-lexer.l"
+#line 109 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==2) { return EP_A; } else { return ALNUM; } }
 	YY_BREAK
 case 29:
@@ -1121,7 +1131,7 @@ case 29:
 (yy_c_buf_p) = yy_cp = yy_bp + 1;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 100 "foreign-pajek-lexer.l"
+#line 110 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==2) { return EP_W; } else { return ALNUM; } }
 	YY_BREAK
 case 30:
@@ -1130,7 +1140,7 @@ case 30:
 (yy_c_buf_p) = yy_cp = yy_bp + 2;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 101 "foreign-pajek-lexer.l"
+#line 111 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==2) { return EP_H1; } else { return ALNUM; } }
 	YY_BREAK
 case 31:
@@ -1139,7 +1149,7 @@ case 31:
 (yy_c_buf_p) = yy_cp = yy_bp + 2;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 102 "foreign-pajek-lexer.l"
+#line 112 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==2) { return EP_H2; } else { return ALNUM; } }
 	YY_BREAK
 case 32:
@@ -1148,7 +1158,7 @@ case 32:
 (yy_c_buf_p) = yy_cp = yy_bp + 2;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 103 "foreign-pajek-lexer.l"
+#line 113 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==2) { return EP_A1; } else { return ALNUM; } }
 	YY_BREAK
 case 33:
@@ -1157,7 +1167,7 @@ case 33:
 (yy_c_buf_p) = yy_cp = yy_bp + 2;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 104 "foreign-pajek-lexer.l"
+#line 114 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==2) { return EP_A2; } else { return ALNUM; } }
 	YY_BREAK
 case 34:
@@ -1166,7 +1176,7 @@ case 34:
 (yy_c_buf_p) = yy_cp = yy_bp + 2;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 105 "foreign-pajek-lexer.l"
+#line 115 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==2) { return EP_K1; } else { return ALNUM; } }
 	YY_BREAK
 case 35:
@@ -1175,7 +1185,7 @@ case 35:
 (yy_c_buf_p) = yy_cp = yy_bp + 2;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 106 "foreign-pajek-lexer.l"
+#line 116 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==2) { return EP_K2; } else { return ALNUM; } }
 	YY_BREAK
 case 36:
@@ -1184,7 +1194,7 @@ case 36:
 (yy_c_buf_p) = yy_cp = yy_bp + 2;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 107 "foreign-pajek-lexer.l"
+#line 117 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==2) { return EP_AP; } else { return ALNUM; } }
 	YY_BREAK
 case 37:
@@ -1193,7 +1203,7 @@ case 37:
 (yy_c_buf_p) = yy_cp = yy_bp + 1;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 108 "foreign-pajek-lexer.l"
+#line 118 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==2) { return EP_L; } else { return ALNUM; } }
 	YY_BREAK
 case 38:
@@ -1202,7 +1212,7 @@ case 38:
 (yy_c_buf_p) = yy_cp = yy_bp + 2;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 109 "foreign-pajek-lexer.l"
+#line 119 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==2) { return EP_LP; } else { return ALNUM; } }
 	YY_BREAK
 case 39:
@@ -1211,7 +1221,7 @@ case 39:
 (yy_c_buf_p) = yy_cp = yy_bp + 4;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 111 "foreign-pajek-lexer.l"
+#line 121 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_LPHI; } else
                              if (igraph_pajek_mode==2) { return EP_LPHI; } else { return ALNUM; } }
 	YY_BREAK
@@ -1221,7 +1231,7 @@ case 40:
 (yy_c_buf_p) = yy_cp = yy_bp + 2;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 113 "foreign-pajek-lexer.l"
+#line 123 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_LC; } else
                              if (igraph_pajek_mode==2) { return EP_LC; } else { return ALNUM; } }
 	YY_BREAK
@@ -1231,7 +1241,7 @@ case 41:
 (yy_c_buf_p) = yy_cp = yy_bp + 2;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 115 "foreign-pajek-lexer.l"
+#line 125 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_LR; } else
                              if (igraph_pajek_mode==2) { return EP_LR; } else { return ALNUM; } }
 	YY_BREAK
@@ -1241,7 +1251,7 @@ case 42:
 (yy_c_buf_p) = yy_cp = yy_bp + 2;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 117 "foreign-pajek-lexer.l"
+#line 127 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_LA; } else
                              if (igraph_pajek_mode==2) { return EP_LA; } else { return ALNUM; } }
 	YY_BREAK
@@ -1251,7 +1261,7 @@ case 43:
 (yy_c_buf_p) = yy_cp = yy_bp + 4;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 119 "foreign-pajek-lexer.l"
+#line 129 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_SIZE; } else 
                              if (igraph_pajek_mode==2) { return EP_SIZE; } else { return ALNUM; } }
 	YY_BREAK
@@ -1261,17 +1271,17 @@ case 44:
 (yy_c_buf_p) = yy_cp = yy_bp + 3;
 YY_DO_BEFORE_ACTION; /* set up igraph_pajek_yytext again */
 YY_RULE_SETUP
-#line 121 "foreign-pajek-lexer.l"
+#line 131 "foreign-pajek-lexer.l"
 { if (igraph_pajek_mode==1) { return VP_FOS; } else 
                              if (igraph_pajek_mode==2) { return EP_FOS; } else { return ALNUM; } }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 124 "foreign-pajek-lexer.l"
+#line 134 "foreign-pajek-lexer.l"
 { return ALNUM; }
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 126 "foreign-pajek-lexer.l"
+#line 136 "foreign-pajek-lexer.l"
 { if (igraph_i_pajek_eof) {
                        yyterminate();
                     } else {
@@ -1282,10 +1292,10 @@ case YY_STATE_EOF(INITIAL):
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 133 "foreign-pajek-lexer.l"
+#line 143 "foreign-pajek-lexer.l"
 ECHO;
 	YY_BREAK
-#line 1289 "foreign-pajek-lexer.c"
+#line 1299 "foreign-pajek-lexer.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -2243,7 +2253,7 @@ void igraph_pajek_yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 133 "foreign-pajek-lexer.l"
+#line 143 "foreign-pajek-lexer.l"
 
 
 

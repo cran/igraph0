@@ -69,12 +69,3 @@ typedef union YYSTYPE
 
 extern YYSTYPE igraph_lgl_yylval;
 
-#define fprintf(a,b,c) 0
-#ifdef stdout
-#  undef stdout
-#endif
-#define stdout 0
-#ifdef exit
-#  undef exit
-#endif
-#define exit
